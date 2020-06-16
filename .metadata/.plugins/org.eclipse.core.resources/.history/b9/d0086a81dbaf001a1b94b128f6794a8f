@@ -1,0 +1,35 @@
+package com.assignment.app;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import com.assignment.domain.Item;
+import com.assignment.domain.Order;
+
+public class MainApp {
+	public static void main(String[] args)  {
+		Item item1=new Item("item1");
+		Item item2=new Item("item2");
+		Item item3=new Item("item3");
+		List<Item> itemList=new ArrayList<>();
+		List<Order> orderList=new ArrayList<>();
+		itemList.addAll(Arrays.asList(item1,item2,item3));
+		Order order1=new Order();
+		order1.getItemsOrder().addAll(Arrays.asList(item1,item2));
+		Order order2=new Order();
+		order2.getItemsOrder().addAll(Arrays.asList(item3));
+		Order order3=new Order();
+		order3.getItemsOrder().addAll(Arrays.asList(item2));
+		Order order4=new Order();
+		order4.getItemsOrder().addAll(Arrays.asList(item1,item2));
+		orderList.addAll(Arrays.asList(order1,order2,order3,order4));
+		orderList.forEach(order->{
+			order.getItemsOrder().forEach(item->item.increaseCount());
+		});
+		Collections.sort(itemList, (o1,o2)->o1.getItemCount()-o2.getItemCount());
+		itemList.forEach(item->System.out.println(item));
+	}
+}

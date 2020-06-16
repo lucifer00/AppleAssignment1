@@ -1,0 +1,15 @@
+package com.assignment.app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.assignment.domain.Item;
+
+public class MainApp {
+	private void psvm() {
+		Item item1=new Item();
+		Item item2=new Item();
+		Item item3=new Item();
+		List<Item> itemList=new ArrayList<>();
+	}
+}

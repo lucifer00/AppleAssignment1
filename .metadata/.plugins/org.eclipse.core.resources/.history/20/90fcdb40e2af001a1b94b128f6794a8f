@@ -1,0 +1,42 @@
+package com.assignment.app;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.assignment.domain.Item;
+import com.assignment.domain.Order;
+
+public class MainApp {
+	public static Item itemOne;
+	public static Item itemTwo;
+	public static void main(String[] args)  {
+		Item item1=new Item("item1");
+		Item item2=new Item("item2");
+		Item item3=new Item("item3");
+		List<Item> itemList=new ArrayList<>();
+		List<Order> orderList=new ArrayList<>();
+		itemList.addAll(Arrays.asList(item1,item2,item3));
+		Order order1=new Order("Order1");
+		order1.getItemsOrder().addAll(Arrays.asList(item1,item2));
+		Order order2=new Order("Order2");
+		order2.getItemsOrder().addAll(Arrays.asList(item3));
+		Order order3=new Order("Order3");
+		order3.getItemsOrder().addAll(Arrays.asList(item2));
+		Order order4=new Order("Order4");
+		order4.getItemsOrder().addAll(Arrays.asList(item1,item2));
+		orderList.addAll(Arrays.asList(order1,order2,order3,order4));
+		orderList.forEach(order->{
+			order.getItemsOrder().forEach(item->item.increaseCount());
+		});
+		Collections.sort(itemList, (o1,o2)->o2.getItemCount()-o1.getItemCount());
+		List<Order> ordersItemHighestFrequency=orderList.stream().filter(order->order.getItemsOrder().contains(itemList.get(0))).collect(Collectors.toList());
+		List<Order> ordersItemSecondFrequency=orderList.stream().filter(order->order.getItemsOrder().contains(itemList.get(0))).collect(Collectors.toList());
+		System.out.println(itemList.get(0).getItemName()+"--> usageCount:"+itemList.get(0).getItemCount()+";"
+		+"corresponding Orders:"+ordersItemHighestFrequency.forEach(o->System.out.print(o.getOrderName()+" "))
+		);
+	}
+}

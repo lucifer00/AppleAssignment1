@@ -1,0 +1,16 @@
+package com.assignment.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Order {
+	private List<Item> itemsOrder=new ArrayList<>();
+
+	public List<Item> getItemsOrder() {
+		return itemsOrder;
+	}
+
+	public void setItemsOrder(List<Item> itemsOrder) {
+		this.itemsOrder = itemsOrder;
+	}
+}
