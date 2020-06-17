@@ -3,6 +3,7 @@ package com.assignment.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+/*Domain class for Order objects*/
 public class Order {
 	private String orderName;
 	public Order(String orderName) {

@@ -1,5 +1,5 @@
 package com.assignment.domain;
-
+/*Domain class for Item Objects*/
 public class Item {
 	private String itemName;
 	private int itemCount=0;
